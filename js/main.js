@@ -30,8 +30,7 @@ async function loadComponent(id, path) {
 // Le header.html utilise des chemins depuis la racine (ex: "pages/contact.html")
 // Si on est dans /pages/, on ajoute "../" devant chaque lien relatif
 function fixNavLinks() {
-  if (base === "") return; // On est à la racine, rien à corriger
-
+  if (base === "") return; 
   document.querySelectorAll("#header-placeholder a").forEach((link) => {
     const href = link.getAttribute("href");
     if (
@@ -104,10 +103,18 @@ function initHamburger() {
 
   overlay.addEventListener("click", closeMenu);
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
-
+ navLinks.querySelectorAll("a").forEach((link) => {
+   link.addEventListener("click", (e) => {
+     const href = link.getAttribute("href");
+     closeMenu();
+     if (href && href !== "#") {
+       setTimeout(() => {
+         window.location.href = href;
+       }, 150); 
+       e.preventDefault();
+     }
+   });
+ });
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) closeMenu();
   });
