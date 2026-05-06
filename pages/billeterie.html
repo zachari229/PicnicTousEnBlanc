@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Winner Event's 2027 — Billeterie</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="/style.css" />
-    <link rel="stylesheet" href="/css/billeterie.css" />
-</head>
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../css/billeterie.css" />
+  </head>
+  <body>
     <!-- Header chargé dynamiquement -->
     <div id="header-placeholder"></div>
 
@@ -19,45 +24,49 @@
          HERO BILLETERIE
     ═══════════════════════════ -->
     <section class="iv-hero">
-        <div class="iv-hero-inner">
-            <span class="section-label" style="color:var(--jaune)">Notre billeterie</span>
-            <h1 class="iv-hero-title">Réservez votre <em>place ici</em></h1>
-            <p class="iv-hero-sub">La journée du PICNIC va se dérouler suivant le programme ci-dessous.</p>
-        </div>
-        
+      <div class="iv-hero-inner">
+        <span class="section-label" style="color: var(--jaune)"
+          >Notre billeterie</span
+        >
+        <h1 class="iv-hero-title">Réservez votre <em>place ici</em></h1>
+        <p class="iv-hero-sub">
+          La journée du PICNIC va se dérouler suivant le programme ci-dessous.
+        </p>
+      </div>
     </section>
 
     <!-- ═══════════════════════════
          TARIFS / BILLETS
     ═══════════════════════════ -->
     <section class="billet-tarifs" id="reservation">
-        <div class="section-header">
-            <span class="section-label" style="color:var(--jaune)">Tarifs & Accès</span>
-        </div>
+      <div class="section-header">
+        <span class="section-label" style="color: var(--jaune)"
+          >Tarifs & Accès</span
+        >
+      </div>
 
-        <div class="tickets-grid">
-            <div class="ticket-card featured">
-                <div class="ticket-price"><sup>XOF</sup>5 000<span>/pers.</span></div>
-                <div class="ticket-divider"></div>
-                <ul class="ticket-features">
-                    <li>Espace VIP exclusif</li>
-                    <li>Kit premium & goodies</li>
-                    <li>Buffet gastronomique</li>
-                    <li>Accès backstage</li>
-                    <li>Meet & Greet artistes</li>
-                </ul>
-                <a href="#reservation" class="btn-ticket btn-ticket-solid">Réserver maintenant</a>
-            </div>
+      <div class="tickets-grid">
+        <div class="ticket-card featured">
+          <div class="ticket-price"><sup>XOF</sup>5 000<span>/pers.</span></div>
+          <div class="ticket-divider"></div>
+          <ul class="ticket-features">
+            <li>Espace VIP exclusif</li>
+            <li>Kit premium & goodies</li>
+            <li>Buffet gastronomique</li>
+            <li>Accès backstage</li>
+            <li>Meet & Greet artistes</li>
+          </ul>
+          <a href="#reservation" class="btn-ticket btn-ticket-solid"
+            >Réserver maintenant</a
+          >
         </div>
+      </div>
     </section>
-
-
-   
 
     <!-- Footer chargé dynamiquement -->
     <div id="footer-placeholder"></div>
 
     <script src="../js/main.js"></script>
-    <script src="../js/bielleterie.js"></script>
-</body>
+    <script src="../js/billeterie.js"></script>
+  </body>
 </html>
