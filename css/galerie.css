@@ -32,7 +32,7 @@
 
 .iv-hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(44px, 6vw, 72px);
+    font-size: clamp(36px, 6vw, 72px);
     font-weight: 900;
     color: var(--blanc);
     line-height: 1.08;
@@ -112,8 +112,7 @@
 ======================== */
 .galerie-section {
     background: var(--blanc);
-    padding-top: 70px;
-    padding-bottom: 50px;
+    padding: 70px 6% 50px;
 }
 
 .carrousel-wrapper {
@@ -168,6 +167,8 @@
     font-size: 14px;
     color: rgba(255, 255, 255, 0.55);
     font-weight: 500;
+    text-align: center;
+    padding: 0 20px;
 }
 
 /* Bouton play vidéo */
@@ -233,8 +234,8 @@
 /* Boutons nav */
 .carrousel-btn {
     position: absolute;
-    top: 50%;
-    transform: translateY(-calc(50% + 30px));
+    top: calc(50% - 30px);
+    transform: translateY(-50%);
     width: 48px;
     height: 48px;
     background: rgba(255, 255, 255, 0.1);
@@ -249,15 +250,13 @@
     transition: all 0.25s;
     z-index: 10;
     backdrop-filter: blur(6px);
-    margin-top: -30px;
 }
 
 .carrousel-btn:hover {
     background: var(--jaune);
     border-color: var(--jaune);
     color: var(--vert-fonce);
-    transform: translateY(-calc(50% + 30px)) scale(1.08);
-    margin-top: -30px;
+    transform: translateY(-50%) scale(1.08);
 }
 
 .prev {
@@ -316,6 +315,7 @@
 ======================== */
 .galerie-grid-section {
     background: var(--off-white);
+    padding: 70px 6% 90px;
 }
 
 .galerie-grid-header {
@@ -425,52 +425,11 @@
 }
 
 /* ========================
-   RESPONSIVE
-======================== */
-@media (max-width: 768px) {
-    .galerie-hero {
-        padding: 130px 5% 60px;
-    }
-
-    .slide-media {
-        height: 300px;
-    }
-
-    .slide-icon {
-        font-size: 54px;
-    }
-
-    .carrousel-btn {
-        width: 38px;
-        height: 38px;
-        font-size: 16px;
-    }
-
-    .galerie-grid {
-        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-        gap: 14px;
-    }
-
-    .galerie-thumb {
-        height: 140px;
-        font-size: 38px;
-    }
-
-    .slide-caption {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 8px;
-        padding: 16px 20px;
-    }
-}
-
-
-/* ========================
-   CTA 
+   CTA
 ======================== */
 .billet-cta {
     background: var(--vert-fonce);
-    padding: 30px 3%;
+    padding: 70px 6%;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -494,11 +453,12 @@
     z-index: 1;
     max-width: 600px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .cta-inner h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 900;
     color: var(--blanc);
     margin-bottom: 14px;
@@ -537,4 +497,329 @@
     margin-top: 18px;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE (max-width: 1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+
+    .iv-hero {
+        padding: 110px 5% 0;
+    }
+
+    .galerie-section {
+        padding: 60px 5% 40px;
+    }
+
+    .slide-media {
+        height: 400px;
+    }
+
+    .galerie-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .galerie-grid-section {
+        padding: 60px 5% 70px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE PORTRAIT (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .iv-hero {
+        padding: 100px 5% 0;
+    }
+
+    .iv-hero-inner {
+        padding-bottom: 50px;
+    }
+
+    .iv-hero-title {
+        font-size: clamp(30px, 8vw, 50px);
+        letter-spacing: -0.5px;
+    }
+
+    .iv-hero-sub {
+        font-size: 15px;
+    }
+
+    .iv-hero-wave svg {
+        height: 50px;
+    }
+
+    /* Filtres */
+    .galerie-filtres {
+        padding: 20px 5%;
+    }
+
+    .filtre-btn {
+        padding: 8px 20px;
+        font-size: 13px;
+    }
+
+    /* Carrousel */
+    .galerie-section {
+        padding: 50px 4% 36px;
+    }
+
+    .carrousel-wrapper {
+        border-radius: 16px;
+    }
+
+    .slide-media {
+        height: 300px;
+    }
+
+    .slide-icon {
+        font-size: 54px;
+    }
+
+    .slide-label {
+        font-size: 13px;
+    }
+
+    .play-btn {
+        width: 64px;
+        height: 64px;
+        font-size: 22px;
+    }
+
+    .carrousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 15px;
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .slide-caption {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 14px 18px;
+    }
+
+    .slide-caption p {
+        font-size: 13px;
+    }
+
+    .carrousel-dots {
+        bottom: 62px;
+    }
+
+    /* Grille miniatures : 2 colonnes */
+    .galerie-grid-section {
+        padding: 50px 5% 60px;
+    }
+
+    .galerie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+
+    .galerie-thumb {
+        height: 150px;
+        font-size: 38px;
+    }
+
+    .play-btn-sm {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+    }
+
+    /* CTA */
+    .billet-cta {
+        padding: 60px 5%;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+
+    /* Hero */
+    .iv-hero {
+        padding: 90px 4% 0;
+    }
+
+    .iv-hero-inner {
+        padding-bottom: 36px;
+    }
+
+    .iv-hero-title {
+        font-size: clamp(26px, 9vw, 38px);
+        letter-spacing: -0.3px;
+    }
+
+    .iv-hero-sub {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .iv-hero-wave svg {
+        height: 36px;
+    }
+
+    /* Filtres */
+    .galerie-filtres {
+        padding: 16px 4%;
+    }
+
+    .galerie-filtres-inner {
+        gap: 8px;
+    }
+
+    .filtre-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+
+    /* Carrousel */
+    .galerie-section {
+        padding: 36px 4% 28px;
+    }
+
+    .carrousel-wrapper {
+        border-radius: 12px;
+    }
+
+    .slide-media {
+        height: 220px;
+    }
+
+    .slide-icon {
+        font-size: 40px;
+    }
+
+    .slide-label {
+        font-size: 12px;
+        padding: 0 14px;
+    }
+
+    .play-btn {
+        width: 52px;
+        height: 52px;
+        font-size: 18px;
+    }
+
+    /* Boutons nav : plus petits, collés aux bords */
+    .carrousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .prev {
+        left: 6px;
+    }
+
+    .next {
+        right: 6px;
+    }
+
+    .slide-caption {
+        padding: 12px 14px;
+        gap: 6px;
+    }
+
+    .slide-caption p {
+        font-size: 12px;
+    }
+
+    .slide-tag {
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .carrousel-counter {
+        top: 10px;
+        right: 12px;
+        font-size: 11px;
+        padding: 4px 10px;
+    }
+
+    .carrousel-dots {
+        bottom: 58px;
+        gap: 6px;
+    }
+
+    .dot {
+        width: 6px;
+        height: 6px;
+    }
+
+    .dot.active {
+        width: 18px;
+    }
+
+    /* Grille miniatures : 2 colonnes serrées */
+    .galerie-grid-section {
+        padding: 40px 4% 50px;
+    }
+
+    .galerie-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .galerie-thumb {
+        height: 120px;
+        font-size: 30px;
+    }
+
+    .galerie-overlay span {
+        font-size: 12px;
+        padding: 8px 16px;
+    }
+
+    .play-btn-sm {
+        width: 38px;
+        height: 38px;
+        font-size: 14px;
+    }
+
+    .galerie-item-tag {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    /* CTA */
+    .billet-cta {
+        padding: 50px 5%;
+    }
+
+    .cta-inner h2 {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+    .cta-inner p {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .btn-cta {
+        width: 100%;
+        max-width: 280px;
+        display: block;
+        margin: 0 auto;
+        padding: 14px 24px;
+        font-size: 14px;
+    }
 }

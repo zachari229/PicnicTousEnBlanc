@@ -28,11 +28,11 @@ body {
 }
 
 /* ========================
-   HERO
+   HERO BILLETERIE
 ======================== */
 .iv-hero {
     background: var(--vert-fonce);
-    padding: 130px 6% 0;
+    padding: 130px 6% 80px;
     position: relative;
     overflow: hidden;
     text-align: center;
@@ -56,12 +56,11 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 2;
-    padding-bottom: 70px;
 }
 
 .iv-hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(44px, 6vw, 72px);
+    font-size: clamp(36px, 6vw, 72px);
     font-weight: 900;
     color: var(--blanc);
     line-height: 1.08;
@@ -82,19 +81,9 @@ body {
     margin: 0 auto;
 }
 
-.iv-hero-wave {
-    position: relative;
-    z-index: 2;
-    line-height: 0;
-    margin-top: -2px;
-}
-
-.iv-hero-wave svg {
-    width: 100%;
-    height: 80px;
-    display: block;
-}
-
+/* ========================
+   SECTION LABEL & HEADER
+======================== */
 .section-label {
     display: inline-block;
     font-size: 13px;
@@ -104,9 +93,6 @@ body {
     margin-bottom: 14px;
 }
 
-/* ========================
-   SECTION HEADER
-======================== */
 .section-header {
     text-align: center;
     margin-bottom: 56px;
@@ -114,7 +100,7 @@ body {
 
 .section-header h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 800;
     color: var(--vert-fonce);
     line-height: 1.15;
@@ -170,6 +156,13 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 24px;
+    /* Centrer si un seul ticket */
+    justify-content: center;
+}
+
+/* Carte unique centrée */
+.tickets-grid:has(.ticket-card:only-child) {
+    grid-template-columns: minmax(280px, 420px);
 }
 
 .ticket-card {
@@ -322,4 +315,136 @@ body {
 }
 
 
+/* ========================================
+   RESPONSIVE — TABLETTE (max-width: 1024px)
+   ======================================== */
+@media (max-width: 1024px) {
 
+    .iv-hero {
+        padding: 110px 5% 60px;
+    }
+
+    .tickets-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Carte unique : pas de 2 colonnes vides */
+    .tickets-grid:has(.ticket-card:only-child) {
+        grid-template-columns: minmax(280px, 400px);
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE PORTRAIT (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .iv-hero {
+        padding: 100px 5% 50px;
+    }
+
+    .iv-hero-title {
+        font-size: clamp(30px, 8vw, 50px);
+        letter-spacing: -0.5px;
+    }
+
+    .iv-hero-sub {
+        font-size: 15px;
+    }
+
+    /* Tarifs */
+    .billet-tarifs {
+        padding: 60px 5%;
+    }
+
+    .section-header {
+        margin-bottom: 36px;
+    }
+
+    .tickets-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        gap: 18px;
+    }
+
+    .tickets-grid:has(.ticket-card:only-child) {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+
+    .ticket-price {
+        font-size: 44px;
+    }
+
+    .ticket-card {
+        padding: 28px 24px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+
+    /* Hero */
+    .iv-hero {
+        padding: 90px 5% 40px;
+    }
+
+    .iv-hero-title {
+        font-size: clamp(26px, 9vw, 38px);
+        letter-spacing: -0.5px;
+    }
+
+    .iv-hero-sub {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    /* Tarifs */
+    .billet-tarifs {
+        padding: 50px 5%;
+    }
+
+    .tickets-grid {
+        max-width: 100%;
+    }
+
+    .ticket-card {
+        padding: 24px 20px;
+    }
+
+    .ticket-price {
+        font-size: 40px;
+    }
+
+    .ticket-price sup {
+        font-size: 18px;
+    }
+
+    .ticket-price span {
+        font-size: 14px;
+    }
+
+    .ticket-features li {
+        font-size: 13px;
+        padding: 5px 0 5px 20px;
+    }
+
+    .btn-ticket {
+        padding: 13px;
+        font-size: 13px;
+    }
+
+    /* Badge "Pass Unique" : ajuster position */
+    .ticket-card.featured::after {
+        font-size: 10px;
+        top: 14px;
+        right: -32px;
+        padding: 4px 36px;
+    }
+}

@@ -43,7 +43,7 @@
 
 .iv-hero-title {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(44px, 6vw, 72px);
+    font-size: clamp(36px, 6vw, 72px);
     font-weight: 900;
     color: var(--blanc);
     line-height: 1.08;
@@ -111,92 +111,72 @@
     box-shadow: 0 16px 48px rgba(30, 125, 75, 0.16);
 }
 
-/* PHOTO */
+/* ========================
+   PHOTO — VRAIE IMAGE
+   aspect-ratio 3/4 garantit que
+   toutes les photos ont exactement
+   la même taille, quelle que soit
+   la résolution du fichier original.
+======================== */
 .iv-card-photo {
     position: relative;
-    height: 260px;
-    overflow: hidden;
-}
-
-.iv-photo-bg {
     width: 100%;
-    height: 100%;
-    background: linear-gradient(160deg, #f5c518 0%, #e8a800 40%, #c47d00 100%);
-    position: relative;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.iv-photo-bg--dark {
-    background: linear-gradient(160deg, #b8dfc8 0%, #7db89a 100%);
-}
-
-/* Décoration géométrique en arrière-plan */
-.iv-deco {
-    position: absolute;
-    inset: 0;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
+    background: var(--vert-pale);
 }
 
-.iv-deco::before,
-.iv-deco::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-    opacity: 0.18;
-}
-
-.iv-deco::before {
-    width: 200px;
-    height: 200px;
-    background: rgba(255, 255, 255, 0.3);
-    top: -40px;
-    left: -40px;
-}
-
-.iv-deco::after {
-    width: 160px;
-    height: 160px;
-    background: rgba(255, 255, 255, 0.2);
-    bottom: 20px;
-    right: -30px;
-}
-
-/* Placeholder photo (remplacer par <img> quand photos disponibles) */
-.iv-photo-placeholder {
-    position: relative;
-    z-index: 2;
-    width: 130px;
-    height: 170px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 65px 65px 0 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0;
-    border: 3px solid rgba(255, 255, 255, 0.3);
-    border-bottom: none;
-    overflow: hidden;
-}
-
-/* Quand on a une vraie image : */
-.iv-photo-placeholder img {
+.iv-card-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top center;
-    border-radius: 62px 62px 0 0;
+    object-position: center top;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
-.iv-initials {
+.iv-card:hover .iv-card-photo img {
+    transform: scale(1.04);
+}
+
+/* Dégradé subtil en bas pour adoucir la transition avec les infos */
+.iv-card-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    background: linear-gradient(to bottom, transparent, rgba(20, 90, 52, 0.1));
+    pointer-events: none;
+}
+
+/* Fallback initiales si l'image ne charge pas */
+.iv-photo-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #f5c518 0%, #e8a800 40%, #c47d00 100%);
     font-family: 'Playfair Display', serif;
-    font-size: 38px;
+    font-size: 48px;
     font-weight: 900;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: -1px;
 }
 
-/* Badge spécialité */
+/* Carte surprise */
+.iv-card--coming .iv-card-photo {
+    background: linear-gradient(160deg, #1b4d2e 0%, #145a34 100%);
+}
+
+.iv-card--coming .iv-photo-fallback {
+    background: linear-gradient(160deg, #1b4d2e 0%, #145a34 100%);
+    color: rgba(245, 197, 24, 0.5);
+    font-size: 56px;
+}
+
 .iv-badge {
     position: absolute;
     top: 14px;
@@ -245,7 +225,6 @@
     letter-spacing: 1px;
 }
 
-/* Carte "coming soon" */
 .iv-card--coming {
     opacity: 0.7;
 }
@@ -254,13 +233,12 @@
     opacity: 1;
 }
 
-
 /* ========================
-   CTA 
+   CTA
 ======================== */
 .billet-cta {
     background: var(--vert-fonce);
-    padding: 30px 3%;
+    padding: 70px 6%;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -284,11 +262,12 @@
     z-index: 1;
     max-width: 600px;
     margin: 0 auto;
+    padding: 20px;
 }
 
 .cta-inner h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 900;
     color: var(--blanc);
     margin-bottom: 14px;
@@ -327,4 +306,187 @@
     margin-top: 18px;
     font-size: 13px;
     color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE (max-width: 1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+
+    .iv-hero {
+        padding: 110px 5% 0;
+    }
+
+    .iv-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE PORTRAIT (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .iv-hero {
+        padding: 100px 5% 0;
+    }
+
+    .iv-hero-inner {
+        padding-bottom: 50px;
+    }
+
+    .iv-hero-title {
+        font-size: clamp(32px, 8vw, 52px);
+        letter-spacing: -0.5px;
+    }
+
+    .iv-hero-sub {
+        font-size: 15px;
+    }
+
+    .iv-hero-wave svg {
+        height: 50px;
+    }
+
+    /* Grille : 2 colonnes */
+    .iv-section {
+        padding: 50px 5% 70px;
+    }
+
+    .iv-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    /* aspect-ratio gère automatiquement la hauteur — pas besoin de height fixe */
+    .iv-nom {
+        font-size: 18px;
+    }
+
+    .iv-card-info {
+        padding: 16px 16px 20px;
+    }
+
+    /* CTA */
+    .billet-cta {
+        padding: 50px 5%;
+    }
+
+    .btn-cta {
+        padding: 14px 32px;
+        font-size: 14px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+
+    /* Hero */
+    .iv-hero {
+        padding: 90px 5% 0;
+    }
+
+    .iv-hero-inner {
+        padding-bottom: 40px;
+    }
+
+    .iv-hero-title {
+        font-size: clamp(28px, 9vw, 42px);
+    }
+
+    .iv-hero-sub {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .iv-hero-wave svg {
+        height: 36px;
+    }
+
+    /* Grille : 1 colonne */
+    .iv-section {
+        padding: 40px 4% 60px;
+    }
+
+    .iv-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    /* Carte en mode horizontal sur mobile */
+    .iv-card {
+        display: flex;
+        flex-direction: row;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    /* En horizontal, on fixe la largeur et on désactive aspect-ratio */
+    .iv-card-photo {
+        width: 110px;
+        aspect-ratio: unset;
+        min-height: 130px;
+        flex-shrink: 0;
+    }
+
+    .iv-photo-fallback {
+        font-size: 32px;
+    }
+
+    .iv-card-info {
+        flex: 1;
+        text-align: left;
+        padding: 14px 16px;
+        border-top: none;
+        border-left: 3px solid var(--jaune);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .iv-prenom {
+        font-size: 13px;
+        margin-bottom: 2px;
+    }
+
+    .iv-nom {
+        font-size: 16px;
+        margin-bottom: 6px;
+    }
+
+    .iv-role {
+        font-size: 11px;
+        letter-spacing: 0.5px;
+    }
+
+    /* CTA */
+    .billet-cta {
+        padding: 40px 5%;
+    }
+
+    .cta-inner h2 {
+        font-size: clamp(24px, 7vw, 36px);
+    }
+
+    .cta-inner p {
+        font-size: 14px;
+    }
+
+    .btn-cta {
+        width: 100%;
+        max-width: 280px;
+        display: block;
+        margin: 0 auto;
+        padding: 14px 24px;
+        font-size: 14px;
+    }
 }

@@ -110,6 +110,39 @@ nav {
     color: var(--vert-fonce) !important;
 }
 
+/* Hamburger menu */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+    z-index: 110;
+}
+
+.nav-hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--blanc);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-hamburger.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-hamburger.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
 /* ========================
    BOUTONS GLOBAUX
 ======================== */
@@ -228,7 +261,7 @@ nav {
 
 .hero h1 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(12px, 4.0vw, 60px);
+    font-size: clamp(32px, 4.0vw, 60px);
     font-weight: 900;
     line-height: 1.08;
     color: var(--blanc);
@@ -243,7 +276,7 @@ nav {
 
 .hero-sub {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(17px, 2vw, 22px);
+    font-size: clamp(15px, 2vw, 22px);
     color: rgba(255, 255, 255, 0.6);
     font-weight: 400;
     margin-bottom: 38px;
@@ -252,14 +285,13 @@ nav {
 
 .hero-meta {
     display: flex;
-    gap: 0;
+    gap: 20px;
     margin-bottom: 44px;
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 16px;
     padding: 20px 28px;
     flex-wrap: wrap;
-    gap: 20px;
 }
 
 .meta-item {
@@ -267,6 +299,7 @@ nav {
     flex-direction: column;
     gap: 4px;
     flex: 1;
+    min-width: 100px;
 }
 
 .meta-label {
@@ -278,7 +311,7 @@ nav {
 }
 
 .meta-value {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: var(--blanc);
 }
@@ -318,7 +351,6 @@ nav {
     display: block;
 }
 
-/* Image haut-gauche */
 .img1 {
     top: 0;
     left: 0;
@@ -327,7 +359,6 @@ nav {
     z-index: 2;
 }
 
-/* Image haut-droite — décalée vers le bas */
 .img2 {
     top: 35px;
     right: 0;
@@ -336,7 +367,6 @@ nav {
     z-index: 1;
 }
 
-/* Image bas-gauche — décalée vers le haut */
 .img3 {
     bottom: 55px;
     left: 0;
@@ -345,7 +375,6 @@ nav {
     z-index: 1;
 }
 
-/* Image bas-droite */
 .img4 {
     bottom: 0;
     right: 0;
@@ -371,6 +400,7 @@ nav {
     color: var(--vert-fonce);
     line-height: 1;
 }
+
 /* ========================
    COMPTEUR DE JOURS
 ======================== */
@@ -622,8 +652,8 @@ nav {
 
 .fondateur-img {
     flex-shrink: 0;
-    width: 600px;
-    height: 600px;
+    width: 420px;
+    height: 480px;
     background: rgba(255, 255, 255, 0.06);
     border-radius: 20px 20px 60px 20px;
     overflow: hidden;
@@ -643,7 +673,6 @@ nav {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    /* ou "contain" selon l'effet voulu */
     display: block;
 }
 
@@ -748,67 +777,8 @@ nav {
     border-color: var(--jaune);
 }
 
-
 /* ========================
    FAQ
-======================== */
-.billet-faq {
-    background: var(--gris-clair);
-    padding: 80px 6%;
-}
-.faq-list {
-    max-width: 720px;
-    margin: 0 auto;
-}
-.faq-item {
-    background: var(--blanc);
-    border-radius: var(--radius-sm);
-    margin-bottom: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 8px rgba(26, 58, 42, 0.07);
-}
-.faq-question {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 22px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--vert-fonce);
-    user-select: none;
-    gap: 12px;
-}
-.faq-question:hover { background: #f8fdf9; }
-.faq-chevron {
-    width: 28px;
-    height: 28px;
-    background: var(--jaune);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: transform 0.25s;
-}
-.faq-chevron i { font-size: 11px; color: var(--vert-fonce); }
-.faq-item.open .faq-chevron { transform: rotate(180deg); }
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s;
-    padding: 0 22px;
-    font-size: 14px;
-    color: var(--gris-texte);
-    line-height: 1.75;
-}
-.faq-item.open .faq-answer {
-    max-height: 300px;
-    padding: 0 22px 18px;
-}
-
-/* ========================
-   FAQ — Standalone
 ======================== */
 .billet-faq {
     background: #ffff;
@@ -946,11 +916,12 @@ nav {
     z-index: 1;
     max-width: 600px;
     margin: 0 auto;
+    padding: 40px 20px;
 }
 
 .cta-inner h2 {
     font-family: 'Playfair Display', serif;
-    font-size: clamp(32px, 4vw, 48px);
+    font-size: clamp(28px, 4vw, 48px);
     font-weight: 900;
     color: var(--blanc);
     margin-bottom: 14px;
@@ -990,7 +961,6 @@ nav {
     font-size: 13px;
     color: rgba(255, 255, 255, 0.35);
 }
-
 
 /* ========================
    BOUTON FLOTTANT BILLETTERIE
@@ -1050,7 +1020,6 @@ nav {
     animation: pulse 2s infinite;
 }
 
-/* Rétracté en petit bouton rond au scroll */
 .floating-ticket.compact {
     padding: 14px;
     border-radius: 50%;
@@ -1059,29 +1028,6 @@ nav {
 .floating-ticket.compact .ft-label {
     display: none;
 }
-
-@keyframes floatIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@media (max-width: 600px) {
-    .floating-ticket {
-        bottom: 20px;
-        right: 20px;
-        padding: 13px 18px;
-        font-size: 13px;
-    }
-}
-
-
 
 /* ========================
    FOOTER
@@ -1281,5 +1227,474 @@ footer {
     100% {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE (max-width: 1024px)
+   ======================================== */
+@media (max-width: 1024px) {
+
+    /* Hero */
+    .hero {
+        padding: 110px 5% 70px;
+    }
+
+    .hero-inner {
+        gap: 40px;
+    }
+
+    .hero-image {
+        width: 380px;
+        height: 440px;
+    }
+
+    /* Fondateur */
+    .fondateur-inner {
+        gap: 40px;
+    }
+
+    .fondateur-img {
+        width: 320px;
+        height: 380px;
+    }
+
+    /* Countdown */
+    .countdown-item {
+        min-width: 110px;
+        padding: 24px 20px 18px;
+    }
+
+    .countdown-num {
+        font-size: 46px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — TABLETTE PORTRAIT (max-width: 768px)
+   ======================================== */
+@media (max-width: 768px) {
+
+    /* ── Navbar ── */
+    .nav-hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--vert-fonce);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 90px 32px 40px;
+        gap: 8px;
+        transition: right 0.35s ease;
+        border-left: 3px solid var(--jaune);
+        z-index: 105;
+        box-shadow: -8px 0 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .nav-links.open {
+        right: 0;
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links a {
+        display: block;
+        font-size: 16px;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+
+    .btn-nav {
+        margin-top: 16px;
+        display: inline-block;
+        font-size: 14px !important;
+    }
+
+    /* Overlay pour fermer le menu */
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 104;
+    }
+
+    .nav-overlay.open {
+        display: block;
+    }
+
+    /* ── Hero ── */
+    .hero {
+        padding: 100px 5% 60px;
+        min-height: auto;
+    }
+
+    .hero-inner {
+        flex-direction: column;
+        gap: 50px;
+        text-align: center;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero h1 {
+        font-size: clamp(32px, 7vw, 48px);
+    }
+
+    .hero-meta {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 20px;
+        text-align: left;
+    }
+
+    .meta-sep {
+        width: 100%;
+        height: 1px;
+        align-self: auto;
+    }
+
+    .hero-btns {
+        justify-content: center;
+    }
+
+    .hero-image {
+        width: 100%;
+        max-width: 480px;
+        height: 360px;
+        margin: 0 auto;
+    }
+
+    .hero-img-badge {
+        left: 0;
+        top: -18px;
+    }
+
+    /* ── Countdown ── */
+    .countdown {
+        padding: 60px 5%;
+    }
+
+    .countdown-grid {
+        gap: 12px;
+    }
+
+    .countdown-item {
+        min-width: 100px;
+        padding: 20px 16px 14px;
+    }
+
+    .countdown-item::after {
+        right: -10px;
+        font-size: 28px;
+        top: 22px;
+    }
+
+    .countdown-num {
+        font-size: 40px;
+    }
+
+    /* ── Sections ── */
+    .section {
+        padding: 60px 5%;
+    }
+
+    /* ── Programme ── */
+    .obj-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+
+    /* ── Fondateur ── */
+    .fondateur-inner {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .fondateur-img {
+        width: 100%;
+        max-width: 340px;
+        height: 340px;
+        margin: 0 auto;
+        border-radius: 20px;
+    }
+
+    .fondateur-quote {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .fondateur-text {
+        text-align: left;
+    }
+
+    .fondateur .btn-primary {
+        display: block;
+        text-align: center;
+    }
+
+    /* ── Sponsors ── */
+    .sponsor-box {
+        width: 130px;
+        height: 68px;
+    }
+
+    /* ── FAQ ── */
+    .billet-faq {
+        padding: 60px 5%;
+    }
+
+    .faq-question {
+        font-size: 14px;
+        padding: 16px 16px;
+    }
+
+    /* ── Footer ── */
+    .footer-inner {
+        gap: 36px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    /* ── Floating Ticket ── */
+    .floating-ticket {
+        bottom: 20px;
+        right: 20px;
+        padding: 13px 18px;
+        font-size: 13px;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE — MOBILE (max-width: 480px)
+   ======================================== */
+@media (max-width: 480px) {
+
+    /* ── Navbar ── */
+    nav {
+        padding: 14px 5%;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+        padding: 90px 5% 50px;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8vw, 40px);
+        letter-spacing: -0.5px;
+    }
+
+    .hero-sub {
+        font-size: 15px;
+    }
+
+    .hero-image {
+        height: 300px;
+    }
+
+    .hero-btns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        text-align: center;
+        padding: 14px 28px;
+    }
+
+    .hero-img-badge .num {
+        font-size: 20px;
+    }
+
+    /* ── Countdown ── */
+    .countdown {
+        padding: 50px 4%;
+    }
+
+    .countdown-grid {
+        gap: 8px;
+    }
+
+    .countdown-item {
+        min-width: 72px;
+        padding: 16px 10px 12px;
+        border-radius: 14px;
+    }
+
+    .countdown-item::after {
+        right: -8px;
+        font-size: 22px;
+        top: 16px;
+    }
+
+    .countdown-num {
+        font-size: 32px;
+    }
+
+    .countdown-lbl {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .countdown-date {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    /* ── Sections ── */
+    .section {
+        padding: 50px 5%;
+    }
+
+    .section-title {
+        font-size: clamp(24px, 6vw, 36px);
+    }
+
+    .section-desc {
+        font-size: 15px;
+    }
+
+    /* ── Programme ── */
+    .obj-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .obj-card {
+        padding: 24px 20px;
+    }
+
+    .obj-num {
+        font-size: 36px;
+    }
+
+    /* ── Fondateur ── */
+    .fondateur-img {
+        height: 280px;
+        max-width: 100%;
+    }
+
+    .fondateur-quote {
+        font-size: 15px;
+        padding-left: 16px;
+    }
+
+    /* ── Sponsors ── */
+    .sponsors-grid {
+        gap: 10px;
+    }
+
+    .sponsor-box {
+        width: calc(50% - 8px);
+        height: 64px;
+        font-size: 12px;
+    }
+
+    /* ── FAQ ── */
+    .billet-faq {
+        padding: 50px 4%;
+    }
+
+    .billet-faq .section-header h2 {
+        font-size: clamp(26px, 7vw, 36px);
+    }
+
+    .faq-question {
+        font-size: 13px;
+        padding: 14px 14px;
+    }
+
+    /* ── CTA ── */
+    .cta-inner {
+        padding: 30px 10px;
+    }
+
+    .cta-inner p {
+        font-size: 14px;
+    }
+
+    .btn-cta {
+        padding: 14px 28px;
+        font-size: 14px;
+        width: 100%;
+        max-width: 280px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .cta-sub {
+        font-size: 11px;
+        line-height: 1.8;
+    }
+
+    /* ── Footer ── */
+    footer {
+        padding: 48px 5% 24px;
+    }
+
+    .footer-inner {
+        gap: 28px;
+    }
+
+    .footer-brand,
+    .footer-links,
+    .footer-info {
+        min-width: 100%;
+    }
+
+    .footer-bottom-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    /* ── Floating Ticket ── */
+    .floating-ticket {
+        bottom: 16px;
+        right: 16px;
+        padding: 12px;
+        border-radius: 50%;
+    }
+
+    .floating-ticket .ft-label {
+        display: none;
     }
 }
