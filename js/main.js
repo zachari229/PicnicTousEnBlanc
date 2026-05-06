@@ -1,11 +1,6 @@
 // ─── Détection du chemin de base selon la page courante ───
-// index.html est à la racine, les autres pages sont dans /pages/
-const isRoot =
-  window.location.pathname.endsWith("index.html") ||
-  window.location.pathname.endsWith("/") ||
-  window.location.pathname.split("/").filter(Boolean).length <= 1;
-
-const base = isRoot ? "" : "../";
+// Méthode fiable : si l'URL contient "/pages/", on est dans un sous-dossier
+const base = window.location.pathname.includes("/pages/") ? "../" : "";
 
 // ─── Chargement dynamique header / footer ─────────────────
 async function loadComponent(id, path) {
@@ -14,13 +9,59 @@ async function loadComponent(id, path) {
     if (!res.ok) throw new Error(`Erreur chargement ${path} : ${res.status}`);
     const html = await res.text();
     document.getElementById(id).innerHTML = html;
+
+    // Après injection du header, on corrige les liens selon la page courante
     if (id === "header-placeholder") {
+      fixNavLinks();
       initHamburger();
       setActiveLink();
+    }
+
+    // Après injection du footer, on corrige aussi ses liens
+    if (id === "footer-placeholder") {
+      fixFooterLinks();
     }
   } catch (err) {
     console.error(err);
   }
+}
+
+// ─── Correction des liens du header ────────────────────────
+// Le header.html utilise des chemins depuis la racine (ex: "pages/contact.html")
+// Si on est dans /pages/, on ajoute "../" devant chaque lien relatif
+function fixNavLinks() {
+  if (base === "") return; // On est à la racine, rien à corriger
+
+  document.querySelectorAll("#header-placeholder a").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (
+      href &&
+      !href.startsWith("http") &&
+      !href.startsWith("#") &&
+      !href.startsWith("../") &&
+      !href.startsWith("/")
+    ) {
+      link.setAttribute("href", "../" + href);
+    }
+  });
+}
+
+// ─── Correction des liens du footer ────────────────────────
+function fixFooterLinks() {
+  if (base === "") return;
+
+  document.querySelectorAll("#footer-placeholder a").forEach((link) => {
+    const href = link.getAttribute("href");
+    if (
+      href &&
+      !href.startsWith("http") &&
+      !href.startsWith("#") &&
+      !href.startsWith("../") &&
+      !href.startsWith("/")
+    ) {
+      link.setAttribute("href", "../" + href);
+    }
+  });
 }
 
 loadComponent("header-placeholder", `${base}pages/header.html`);
