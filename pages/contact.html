@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winner Event's 2027 - Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/contact.css" />
+</head>
+<body>
+    <!-- Header chargé dynamiquement -->
+    <div id="header-placeholder"></div>
+
+    <!-- HERO CONTACT -->
+  <section class="iv-hero">
+    <div class="iv-hero-inner">
+      <div class="contact-badge">Picnic Tous en Blanc — Acte 03</div>
+      <h1 class="iv-hero-title">Contactez-<em>nous</em></h1>
+      <p class="iv-hero-sub">Vous avez des questions ? N'hésitez pas à nous contacter !</p>
+    </div>
+    <div class="iv-hero-wave">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f5faf7"/>
+      </svg>
+      
+    </div>
+  </section>
+    
+<!-- ========================
+     CONTACT
+======================== -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+
+    <div class="contact-info">
+      
+      <h2 class="contact-title">Adresse</h2>
+
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1b4d2e" stroke-width="2.2" stroke-linecap="round">
+              <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="contact-card-text">
+            <span class="contact-card-label">Lieu</span>
+            <span class="contact-card-value">Ouèssè-Wogouudo, Collines</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1b4d2e" stroke-width="2.2" stroke-linecap="round">
+              <rect x="3" y="4" width="18" height="18" rx="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <div class="contact-card-text">
+            <span class="contact-card-label">Date</span>
+            <span class="contact-card-value">04 Avril 2027</span>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#1b4d2e" stroke-width="2.2" stroke-linecap="round">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <div class="contact-card-text">
+            <span class="contact-card-label">Horaires</span>
+            <span class="contact-card-value">13h00 – 23h00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div id="contactForm">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="prenom">Prénom</label>
+            <input type="text" id="prenom" placeholder="Votre prénom" />
+          </div>
+          <div class="form-field">
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" placeholder="Votre nom" />
+          </div>
+          <div class="form-field">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" placeholder="+229 XX XX XX XX" />
+          </div>
+          <div class="form-field full">
+            <label>Sujet</label>
+            <div class="form-subjects">
+              <button class="subj-btn active" onclick="setSubj(this)">Renseignements</button>
+              <button class="subj-btn" onclick="setSubj(this)">Billetterie</button>
+              <button class="subj-btn" onclick="setSubj(this)">Partenariat</button>
+              <button class="subj-btn" onclick="setSubj(this)">Presse / Médias</button>
+              <button class="subj-btn" onclick="setSubj(this)">Autre</button>
+            </div>
+          </div>
+          <div class="form-field full">
+            <label for="message">Message</label>
+            <textarea id="message" placeholder="Décrivez votre demande en détail…"></textarea>
+          </div>
+        </div>
+        <div class="form-divider"></div>
+        <button class="form-btn" onclick="sendForm()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1b4d2e" stroke-width="2.5" stroke-linecap="round" width="18" height="18">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+          Envoyer le message
+        </button>
+      </div>
+
+      <div class="contact-success" id="contactSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#1b4d2e" stroke-width="2.5" stroke-linecap="round" width="30" height="30">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h3>Message envoyé !</h3>
+        <p>Merci de nous avoir contactés.<br>Nous vous répondons dans les plus brefs délais.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- Footer chargé dynamiquement -->
+    <div id="footer-placeholder"></div>
+    <script src="../js/main.js"></script>
+</body>
+</html>

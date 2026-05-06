@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galerie — Winner Event's 2027</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/css/galerie.css" />
+</head>
+<body>
+
+  <!-- Header dynamique -->
+  <div id="header-placeholder"></div>
+
+  <!-- ========================
+       HERO GALERIE
+  ======================== -->
+   <section class="iv-hero">
+    <div class="iv-hero-inner">
+      <span class="section-label" style="color:var(--jaune)">Notre galerie</span>
+      <h1 class="iv-hero-title">Découvrez nos<em> moments préférés</em></h1>
+      <p class="iv-hero-sub">Retrouvez les meilleures images de nos événements passés.</p>
+    </div>
+    <div class="iv-hero-wave">
+      <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f5faf7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ========================
+       FILTRES
+  ======================== -->
+  <section class="galerie-filtres">
+    <div class="galerie-filtres-inner">
+      <button class="filtre-btn active" data-filtre="tout">Tout</button>
+      <button class="filtre-btn" data-filtre="photo"> Photos</button>
+      <button class="filtre-btn" data-filtre="video"> Vidéos</button>
+    </div>
+  </section>
+
+  <!-- ========================
+       CARROUSEL PRINCIPAL
+  ======================== -->
+  <section class="galerie-section section">
+    <div class="carrousel-wrapper">
+
+      <!-- Piste -->
+      <div class="carrousel-track" id="carrouselTrack">
+
+        <!-- PHOTOS -->
+        <div class="carrousel-slide" data-type="photo">
+          <div class="slide-media slide-placeholder">
+            <span class="slide-icon"></span>
+            <span class="slide-label">Photo 1 — Ambiance générale</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag photo-tag"> Photo</span>
+            <p>L'ambiance unique de notre événement en plein air</p>
+          </div>
+        </div>
+
+        <div class="carrousel-slide" data-type="photo">
+          <div class="slide-media slide-placeholder">
+            <span class="slide-icon"></span>
+            <span class="slide-label">Photo 2 — Foule & festivités</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag photo-tag"> Photo</span>
+            <p>Des milliers de participants réunis pour célébrer</p>
+          </div>
+        </div>
+
+        <div class="carrousel-slide" data-type="photo">
+          <div class="slide-media slide-placeholder">
+            <span class="slide-icon"></span>
+            <span class="slide-label">Photo 3 — Remise des prix</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag photo-tag"> Photo</span>
+            <p>La cérémonie de remise des trophées</p>
+          </div>
+        </div>
+
+        <div class="carrousel-slide" data-type="photo">
+          <div class="slide-media slide-placeholder">
+            <span class="slide-icon"></span>
+            <span class="slide-label">Photo 4 — Décoration florale</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag photo-tag"> Photo</span>
+            <p>Une décoration soignée dans les moindres détails</p>
+          </div>
+        </div>
+
+        <div class="carrousel-slide" data-type="photo">
+          <div class="slide-media slide-placeholder">
+            <span class="slide-icon"></span>
+            <span class="slide-label">Photo 5 — Espace restauration</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag photo-tag"> Photo</span>
+            <p>Le coin gastronomie apprécié de tous</p>
+          </div>
+        </div>
+
+        <!-- VIDÉOS -->
+        <div class="carrousel-slide" data-type="video">
+          <div class="slide-media slide-placeholder video-placeholder">
+            <div class="play-btn">▶</div>
+            <span class="slide-label">Vidéo 1 — Highlights de l'édition 2025</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag video-tag"> Vidéo</span>
+            <p>Revivez les temps forts de la dernière édition en 2 minutes</p>
+          </div>
+        </div>
+
+        <div class="carrousel-slide" data-type="video">
+          <div class="slide-media slide-placeholder video-placeholder">
+            <div class="play-btn">▶</div>
+            <span class="slide-label">Vidéo 2 — Interview des lauréats</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag video-tag"> Vidéo</span>
+            <p>Les gagnants partagent leurs émotions après la cérémonie</p>
+          </div>
+        </div>
+
+        <div class="carrousel-slide" data-type="video">
+          <div class="slide-media slide-placeholder video-placeholder">
+            <div class="play-btn">▶</div>
+            <span class="slide-label">Vidéo 3 — Discours d'ouverture</span>
+          </div>
+          <div class="slide-caption">
+            <span class="slide-tag video-tag"> Vidéo</span>
+            <p>Le discours inspirant du fondateur pour lancer l'édition</p>
+          </div>
+        </div>
+
+      </div><!-- /carrousel-track -->
+
+      <!-- Contrôles -->
+      <button class="carrousel-btn prev" id="prevBtn" aria-label="Précédent">&#8592;</button>
+      <button class="carrousel-btn next" id="nextBtn" aria-label="Suivant">&#8594;</button>
+
+      <!-- Indicateurs -->
+      <div class="carrousel-dots" id="carrouselDots"></div>
+
+      <!-- Compteur -->
+      <div class="carrousel-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
+      </div>
+
+    </div><!-- /carrousel-wrapper -->
+  </section>
+
+  <!-- ========================
+       GRILLE MINIATURES
+  ======================== -->
+  <section class="galerie-grid-section section">
+    <div class="galerie-grid-header">
+      <span class="section-label">Tous les médias</span>
+      <h2 class="section-title">Parcourez la galerie</h2>
+    </div>
+
+    <div class="galerie-grid" id="galerieGrid">
+
+      <div class="galerie-item" data-type="photo" data-index="0">
+        <div class="galerie-thumb photo-thumb">
+          <span></span>
+          <div class="galerie-overlay"><span>Voir</span></div>
+        </div>
+        <span class="galerie-item-tag photo-tag"> Photo</span>
+      </div>
+
+      <div class="galerie-item" data-type="photo" data-index="1">
+        <div class="galerie-thumb photo-thumb">
+          <span></span>
+          <div class="galerie-overlay"><span>Voir</span></div>
+        </div>
+        <span class="galerie-item-tag photo-tag"> Photo</span>
+      </div>
+
+      <div class="galerie-item" data-type="video" data-index="5">
+        <div class="galerie-thumb video-thumb">
+          <span class="play-btn-sm">▶</span>
+          <div class="galerie-overlay"><span>Lire</span></div>
+        </div>
+        <span class="galerie-item-tag video-tag"> Vidéo</span>
+      </div>
+
+      <div class="galerie-item" data-type="photo" data-index="2">
+        <div class="galerie-thumb photo-thumb">
+          <span></span>
+          <div class="galerie-overlay"><span>Voir</span></div>
+        </div>
+        <span class="galerie-item-tag photo-tag"> Photo</span>
+      </div>
+
+      <div class="galerie-item" data-type="video" data-index="6">
+        <div class="galerie-thumb video-thumb">
+          <span class="play-btn-sm">▶</span>
+          <div class="galerie-overlay"><span>Lire</span></div>
+        </div>
+        <span class="galerie-item-tag video-tag"> Vidéo</span>
+      </div>
+
+      <div class="galerie-item" data-type="photo" data-index="3">
+        <div class="galerie-thumb photo-thumb">
+          <span></span>
+          <div class="galerie-overlay"><span>Voir</span></div>
+        </div>
+        <span class="galerie-item-tag photo-tag"> Photo</span>
+      </div>
+
+      <div class="galerie-item" data-type="photo" data-index="4">
+        <div class="galerie-thumb photo-thumb">
+          <span></span>
+          <div class="galerie-overlay"><span>Voir</span></div>
+        </div>
+        <span class="galerie-item-tag photo-tag"> Photo</span>
+      </div>
+
+      <div class="galerie-item" data-type="video" data-index="7">
+        <div class="galerie-thumb video-thumb">
+          <span class="play-btn-sm">▶</span>
+          <div class="galerie-overlay"><span>Lire</span></div>
+        </div>
+        <span class="galerie-item-tag video-tag"> Vidéo</span>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <!-- ═══════════════════════════
+         CTA 
+    ═══════════════════════════ -->
+    <section class="billet-cta">
+        <div class="cta-inner">
+            <h2>Vous serez là en 2027 ?</h2>
+            <p>Rejoignez-nous et créez de nouveaux souvenirs inoubliables.</p>
+            <a href="../pages/billeterie.html" class="btn-cta">
+                <i class="fa-solid fa-bolt" style="margin-right:8px;"></i>Réserver mon billet
+            </a>
+        </div>
+    </section>
+
+  <!-- Footer dynamique -->
+  <div id="footer-placeholder"></div>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/galerie.js"></script>
+</body>
+</html>
+
+

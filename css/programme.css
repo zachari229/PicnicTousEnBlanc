@@ -1,0 +1,598 @@
+/* ========================
+   VARIABLES & BASE
+======================== */
+:root {
+    --vert-fonce: #1a3a2a;
+    --vert-moyen: #2d5a3d;
+    --vert-clair: #4a8c5c;
+    --jaune: #f5c518;
+    --jaune-hover: #e0b010;
+    --blanc: #ffffff;
+    --gris-clair: #f5faf7;
+    --gris-texte: #6b7280;
+    --ombre: 0 4px 24px rgba(26, 58, 42, 0.12);
+    --radius: 16px;
+    --radius-sm: 10px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--gris-clair);
+    color: var(--vert-fonce);
+}
+
+/* ========================
+   HERO
+======================== */
+.iv-hero {
+    background: var(--vert-fonce);
+    padding: 130px 6% 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.iv-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.07) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.iv-hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 70px;
+}
+
+.iv-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--blanc);
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+.iv-hero-title em {
+    color: var(--jaune);
+    font-style: normal;
+}
+
+.iv-hero-sub {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+.iv-hero-wave {
+    position: relative;
+    z-index: 2;
+    line-height: 0;
+    margin-top: -2px;
+}
+
+.iv-hero-wave svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+
+/* ========================
+   SECTION HEADER
+======================== */
+.section-header {
+    text-align: center;
+    margin-bottom: 56px;
+}
+
+.section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 800;
+    color: var(--vert-fonce);
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.section-header h2 em {
+    color: var(--vert-clair);
+    font-style: normal;
+}
+
+.section-header p {
+    font-size: 16px;
+    color: var(--gris-texte);
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.section-label {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+/* ========================
+   TARIFS / BILLETS
+======================== */
+.billet-tarifs {
+    background: #23804F;
+    padding: 80px 6%;
+    position: relative;
+    overflow: hidden;
+}
+
+.billet-tarifs::before {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    right: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.05) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.billet-tarifs .section-header h2 {
+    color: var(--blanc);
+}
+
+.billet-tarifs .section-header p {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.tickets-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.ticket-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius);
+    padding: 32px 28px;
+    position: relative;
+    transition: transform 0.2s, border-color 0.2s;
+    overflow: hidden;
+}
+
+.ticket-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(245, 197, 24, 0.35);
+}
+
+.ticket-card.featured {
+    background: var(--jaune);
+    border-color: var(--jaune);
+}
+
+.ticket-card.featured::after {
+    content: 'Pass Unique';
+    position: absolute;
+    top: 18px;
+    right: -28px;
+    background: var(--vert-fonce);
+    color: var(--jaune);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 38px;
+    transform: rotate(45deg);
+}
+
+.ticket-name {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 8px;
+}
+
+.ticket-card.featured .ticket-name {
+    color: rgba(26, 58, 42, 0.65);
+}
+
+.ticket-price {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--blanc);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.ticket-card.featured .ticket-price {
+    color: var(--vert-fonce);
+}
+
+.ticket-price sup {
+    font-size: 22px;
+    vertical-align: super;
+}
+
+.ticket-price span {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.ticket-divider {
+    height: 1px;
+    background: rgba(255, 255, 255, 0.12);
+    margin: 20px 0;
+}
+
+.ticket-card.featured .ticket-divider {
+    background: rgba(26, 58, 42, 0.15);
+}
+
+.ticket-features {
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.ticket-features li {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    padding: 6px 0 6px 22px;
+    position: relative;
+}
+
+.ticket-card.featured .ticket-features li {
+    color: rgba(26, 58, 42, 0.8);
+}
+
+.ticket-features li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 13px;
+    height: 13px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Ccircle cx='6.5' cy='6.5' r='6.5' fill='%23f5c518'/%3E%3Cpath d='M3.5 6.5l2 2 4-4' stroke='%231a3a2a' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.ticket-card.featured .ticket-features li::before {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 13'%3E%3Ccircle cx='6.5' cy='6.5' r='6.5' fill='%231a3a2a'/%3E%3Cpath d='M3.5 6.5l2 2 4-4' stroke='%23f5c518' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+
+.btn-ticket {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    text-align: center;
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, transform 0.1s;
+    text-decoration: none;
+}
+
+.btn-ticket-outline {
+    background: transparent;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    color: var(--blanc);
+}
+
+.btn-ticket-outline:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--jaune);
+    color: var(--jaune);
+}
+
+.btn-ticket-solid {
+    background: var(--vert-fonce);
+    color: var(--jaune);
+}
+
+.btn-ticket-solid:hover {
+    background: #0f2318;
+    transform: scale(1.01);
+}
+
+/* ========================
+   INFOS PRATIQUES
+======================== */
+.billet-infos {
+    background: var(--blanc);
+    padding: 80px 6%;
+}
+
+.infos-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.info-card {
+    border-radius: var(--radius);
+    padding: 28px 24px;
+    background: var(--gris-clair);
+    border: 1px solid #e2ece6;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--ombre);
+}
+
+.info-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--vert-fonce);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: var(--jaune);
+}
+
+.info-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--vert-fonce);
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    font-size: 14px;
+    color: var(--gris-texte);
+    line-height: 1.65;
+}
+
+/* ========================
+   PROGRAMME
+======================== */
+.programme {
+    background: var(--off-white);
+}
+
+.obj-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 24px;
+    margin-top: 50px;
+}
+
+.obj-card {
+    background: var(--blanc);
+    border: 1px solid var(--vert-mid);
+    border-radius: 20px;
+    padding: 32px 26px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.obj-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--jaune);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+}
+
+.obj-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(30, 125, 75, 0.12);
+}
+
+.obj-card:hover::before {
+    transform: scaleX(1);
+}
+
+.obj-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 44px;
+    font-weight: 900;
+    color: var(--vert-mid);
+    line-height: 1;
+    margin-bottom: 16px;
+}
+
+.obj-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--texte-sombre);
+    margin-bottom: 10px;
+}
+
+.obj-desc {
+    font-size: 14px;
+    color: var(--texte-muted);
+    line-height: 1.7;
+}
+
+/* ========================
+   CTA FINAL
+======================== */
+.billet-cta {
+    background: var(--vert-fonce);
+    padding: 80px 6%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.billet-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.06) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--blanc);
+    margin-bottom: 14px;
+}
+
+.cta-inner h2 em {
+    color: var(--jaune);
+    font-style: normal;
+}
+
+.cta-inner p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--jaune);
+    color: var(--vert-fonce);
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-cta:hover {
+    background: var(--jaune-hover);
+    transform: scale(1.03);
+}
+
+.cta-sub {
+    margin-top: 18px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+
+
+
+
+/* ========================
+   CTA 
+======================== */
+.billet-cta {
+    background: var(--vert-fonce);
+    padding: 30px 3%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.billet-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.06) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--blanc);
+    margin-bottom: 14px;
+}
+
+.cta-inner h2 em {
+    color: var(--jaune);
+    font-style: normal;
+}
+
+.cta-inner p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--jaune);
+    color: var(--vert-fonce);
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-cta:hover {
+    background: var(--jaune-hover);
+    transform: scale(1.03);
+}
+
+.cta-sub {
+    margin-top: 18px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.35);
+}

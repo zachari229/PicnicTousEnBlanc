@@ -1,0 +1,330 @@
+/* ===========================
+   PARTENAIRES.CSS
+   Styles spécifiques à la page partenaires
+   =========================== */
+
+/* LIEN ACTIF NAVBAR */
+.nav-links a.active {
+    color: var(--jaune) !important;
+    font-weight: 700;
+}
+
+/* ========================
+   HERO PARTENAIRES
+======================== */
+.iv-hero {
+    background: var(--vert-fonce);
+    padding: 130px 6% 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.iv-hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.07) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.iv-hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+    padding-bottom: 70px;
+}
+
+.iv-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 900;
+    color: var(--blanc);
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+}
+
+.iv-hero-title em {
+    color: var(--jaune);
+    font-style: normal;
+}
+
+.iv-hero-sub {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.8;
+    max-width: 580px;
+    margin: 0 auto;
+}
+
+.iv-hero-wave {
+    position: relative;
+    z-index: 2;
+    line-height: 0;
+    margin-top: -2px;
+}
+
+.iv-hero-wave svg {
+    width: 100%;
+    height: 80px;
+    display: block;
+}
+
+/* ========================
+   SECTION GRILLE
+======================== */
+.iv-section {
+    background: var(--off-white);
+    padding: 70px 6% 90px;
+}
+
+.iv-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ========================
+   CARTE INTERVENANT
+======================== */
+.iv-card {
+    background: var(--blanc);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(30, 125, 75, 0.07);
+    border: 1px solid var(--vert-mid);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.iv-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(30, 125, 75, 0.16);
+}
+
+/* PHOTO */
+.iv-card-photo {
+    position: relative;
+    height: 260px;
+    overflow: hidden;
+}
+
+.iv-photo-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #f5c518 0%, #e8a800 40%, #c47d00 100%);
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.iv-photo-bg--dark {
+    background: linear-gradient(160deg, #b8dfc8 0%, #7db89a 100%);
+}
+
+/* Décoration géométrique en arrière-plan */
+.iv-deco {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.iv-deco::before,
+.iv-deco::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.18;
+}
+
+.iv-deco::before {
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.3);
+    top: -40px;
+    left: -40px;
+}
+
+.iv-deco::after {
+    width: 160px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.2);
+    bottom: 20px;
+    right: -30px;
+}
+
+/* Placeholder photo (remplacer par <img> quand photos disponibles) */
+.iv-photo-placeholder {
+    position: relative;
+    z-index: 2;
+    width: 130px;
+    height: 170px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 65px 65px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-bottom: none;
+    overflow: hidden;
+}
+
+/* Quand on a une vraie image : */
+.iv-photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    border-radius: 62px 62px 0 0;
+}
+
+.iv-initials {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Badge spécialité */
+.iv-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: var(--vert-fonce);
+    color: var(--jaune);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    z-index: 3;
+}
+
+/* INFO */
+.iv-card-info {
+    padding: 20px 22px 24px;
+    text-align: center;
+    border-top: 3px solid var(--jaune);
+}
+
+.iv-prenom {
+    font-size: 15px;
+    font-weight: 400;
+    color: var(--texte-muted);
+    margin-bottom: 2px;
+    font-style: italic;
+}
+
+.iv-nom {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--texte-sombre);
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    line-height: 1.1;
+}
+
+.iv-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--vert);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Carte "coming soon" */
+.iv-card--coming {
+    opacity: 0.7;
+}
+
+.iv-card--coming:hover {
+    opacity: 1;
+}
+
+
+/* ========================
+   CTA 
+======================== */
+.billet-cta {
+    background: var(--vert-fonce);
+    padding: 30px 3%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.billet-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(245, 197, 24, 0.06) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-inner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    color: var(--blanc);
+    margin-bottom: 14px;
+}
+
+.cta-inner h2 em {
+    color: var(--jaune);
+    font-style: normal;
+}
+
+.cta-inner p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 32px;
+    line-height: 1.7;
+}
+
+.btn-cta {
+    display: inline-block;
+    padding: 16px 40px;
+    background: var(--jaune);
+    color: var(--vert-fonce);
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+}
+
+.btn-cta:hover {
+    background: var(--jaune-hover);
+    transform: scale(1.03);
+}
+
+.cta-sub {
+    margin-top: 18px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.35);
+}
