@@ -104,21 +104,23 @@ function initHamburger() {
   overlay.addEventListener("click", closeMenu);
 
  navLinks.querySelectorAll("a").forEach((link) => {
-   link.addEventListener("click", (e) => {
-     const href = link.getAttribute("href");
-     closeMenu();
-     if (href && href !== "#") {
-       setTimeout(() => {
-         window.location.href = href;
-       }, 150); 
-       e.preventDefault();
-     }
-   });
- });
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) closeMenu();
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const href = link.getAttribute("href");
+    closeMenu();
+    if (href && href !== "#") {
+      setTimeout(() => {
+        // Construire l'URL absolue correcte
+        if (href.startsWith("../") || href.startsWith("http")) {
+          window.location.href = href;
+        } else {
+          // href est toujours écrit depuis la racine (ex: "pages/billeterie.html")
+          window.location.href = "/" + href;
+        }
+      }, 150);
+    }
   });
-}
+});
 
 // ─── Lien actif dans la navbar ────────────────────────────
 function setActiveLink() {
