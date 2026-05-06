@@ -1,0 +1,10 @@
+{
+  "headers": [
+    {
+      "source": "/pages/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}
