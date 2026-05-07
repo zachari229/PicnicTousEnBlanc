@@ -26,9 +26,9 @@ async function loadComponent(id, path) {
   }
 }
 
+
 // ─── Correction des liens du header ────────────────────────
-// Le header.html utilise des chemins depuis la racine (ex: "pages/contact.html")
-// Si on est dans /pages/, on ajoute "../" devant chaque lien relatif
+
 function fixNavLinks() {
   if (base === "") return; 
   document.querySelectorAll("#header-placeholder a").forEach((link) => {
@@ -65,6 +65,7 @@ function fixFooterLinks() {
 
 loadComponent("header-placeholder", `${base}pages/header.html`);
 loadComponent("footer-placeholder", `${base}pages/footer.html`);
+
 
 // ─── Menu Hamburger ─────────────────────────────────────────
 function initHamburger() {
